@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tests>
+	<test> 
+		<title>How are you?</title> 
+		<level>Начинаещ</level>
+		<description>Попълнете изреченията с глагола "to be" в подходящата му форма</description>
+		<exmaple>I ... here for the first time. I am here for the first time</exmaple> 
+		<questions>My [] husband in london.|I [] here on business.|we [] here on a holiday.|there [] a nice restaurant near your hotel.</questions>
+		<answer>are|am|are|is</answer>
+	</test>
+	<test> 
+		<title>Telephon Calls</title> 
+		<level>Начинаещ</level>
+		<description>Поставете следните глаголи в минало време.</description>
+		<exmaple>I see. - I saw.</exmaple> 
+		<questions>I read [] | you get [] | we come [] | she eats [] | they know [] | he thinks [] | i show [] | you find []</questions>
+		<answer>are|am|are|is</answer>
+	</test>
+	<test> 
+		<title>Hello</title> 
+		<level>Начинаещ</level>
+		<description>Отговорете на въпросите с кратки форми: Да или Не</description>
+		<exmaple>Are you here on business ? - Yes, I am  No, I`m not</exmaple> 
+		<questions>Are you a sales manager ? [] [] |Is your wife with you ? [] [] |Are you in London for the first time ? [] []|Are you from Hamburg?[] [] | Is Tom in London? [] []</questions>
+		<answer>are|am|are|is</answer>
+	</test>
+	<test> 
+		<title>At the Travel Agent`s</title> 
+		<level>Напреднал</level>
+		<description>Поставете следните глаголи в минало време.</description>
+		<exmaple>I see. - I saw.</exmaple> 
+		<questions>I read [] | you get [] | we come [] | she eats [] | they know [] | he thinks [] | i show [] | you find []</questions>
+		<answer>are|am|are|is</answer>
+	</test>
+	<test> 
+		<title>The New Home</title> 
+		<level>Напреднал</level>
+		<description>Поставете следните глаголи в минало време.</description>
+		<exmaple>I see. - I saw.</exmaple> 
+		<questions>I read [] | you get [] | we come [] | she eats [] | they know [] | he thinks [] | i show [] | you find []</questions>
+		<answer>are|am|are|is</answer>
+	</test>
+	<test> 
+		<title>Shopping</title> 
+		<level>Напреднал</level>
+		<description>Поставете следните глаголи в минало време.</description>
+		<exmaple>I see. - I saw.</exmaple> 
+		<questions>I read [] | you get [] | we come [] | she eats [] | they know [] | he thinks [] | i show [] | you find []</questions>
+		<answer>are|am|are|is</answer>
+	</test>
+	<test> 
+		<title>At the Station</title> 
+		<level>Напреднал</level>
+		<description>Поставете следните глаголи в минало време.</description>
+		<exmaple>I see. - I saw.</exmaple> 
+		<questions>I read [] | you get [] | we come [] | she eats [] | they know [] | he thinks [] | i show [] | you find []</questions>
+		<answer>are|am|are|is</answer>
+	</test>
+</tests>

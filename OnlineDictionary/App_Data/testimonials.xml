@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<testimonials>
+  <testimonial date="15/06/2013 21:04:42" firstName="Мартин" lname="Захариев" email="dovelen@kukui.com" published="true" rating="4.5" personalReview="Страхотно. Много полезен сайт.!">Страхотно. Много полезен сайт.!</testimonial>
+  <testimonial date="30/06/2013 21:50:11" firstName="Благовес" lname="Стоянов" email="ilian@kuku.com" published="false" rating="2.5" personalReview="Аз съм батман !">Аз съм батман !</testimonial>
+  <testimonial date="15/06/2013 22:41:25" firstName="Ilian" lname="Stoianov" email="ilian@kukui.com" published="false" rating="5.0" personalReview="Не ми харесва!">Не ми харесва!</testimonial>
+  <testimonial date="16/06/2013 20:33:02" firstName="Hristo" lname="Петков" email="hhh@hhh.hhh" published="true" rating="4.5" personalReview="Аз съм изключително доволен от вас.">Аз съм изключително доволен от вас.</testimonial>
+  <testimonial date="30/06/2013 17:51:27" firstName="Веселин" lname="Йорданов" email="fdas@fda.bg" published="false" rating="2.5" personalReview="Браво, добре се е получило">Браво, добре се е получило</testimonial>
+  <testimonial date="30/06/2013 22:57:38" firstName="Мартин" lname="Сотиров" email="dfas@fa.bg" published="false" rating="2.5" personalReview="Така добре е !">Така добре е !</testimonial>
+</testimonials>

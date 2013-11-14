@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tests>
+	<test id="1" file="Test1.htm" name="Some Name" level="Beginer" date="23/6/2013" />
+	<test id="2" file="Test2.htm" name="Some Name 2" level="Beginer" date="23/6/2013" />
+	<test id="3" file="Test3.htm" name="Some Name 3" level="Beginer" date="23/6/2013" />
+	<test id="4" file="Test4.htm" name="Some Name 4" level="Beginer" date="23/6/2013" />
+	<test id="5" file="Test5.htm" name="Some Name 5" level="Beginer" date="23/6/2013" />
+</tests>

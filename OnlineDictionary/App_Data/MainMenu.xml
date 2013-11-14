@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menus>
+  <menu name="Начало" path="Default.aspx" role="Master,Admin,User,Guest" visible="true">
+    <control name="FreeAccess/Welcome.ascx"></control>
+  </menu>
+  <menu name="Превод" path="AdvancedSearch.aspx" role="Master,Admin,User,Guest" visible="true">
+    <control name="FreeAccess/ShortSearch.ascx"></control>
+  </menu>
+  <menu name="Тестове" path="Tests.aspx" role="Master,Admin,User" visible="true">
+    <control name="RestrictedAccess/Tests.ascx"></control>
+  </menu>
+  <menu name="Профил" path="AccountInformation.aspx" role="Master,Admin,User" visible="true">
+    <control name="RestrictedAccess/AccountInformation.ascx"></control>
+  </menu>
+  <menu name="Настройки" path="Admin.aspx" role="Master,Admin" visible="true">
+    <control name="AdminModules/Settings.ascx"></control>
+  </menu>
+  <menu name="Мастър " path="Master.aspx" role="Master" visible="true">
+    <control name="MasterModules/Master.ascx"></control>
+  </menu>
+  <menu name="За нас" path="About.aspx" role="Master,Admin,User,Guest" visible="true">
+    <control name="FreeAccess/About.ascx"></control>
+  </menu>
+  <menu name="Регистрация" path="Registration.aspx" role="Master,Admin,User,Guest" visible="true">
+    <control name="FreeAccess/CreateNewAccount.ascx"></control>
+  </menu>
+  <menu name="Отзиви" path="WriteAReview.aspx" role="Master,Admin,User,Guest" visible="true">
+    <control name="RestrictedAccess/WriteAReview.ascx"></control>
+  </menu>
+</menus>

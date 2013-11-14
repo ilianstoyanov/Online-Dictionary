@@ -1,0 +1,1066 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DictionaryModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DictionaryModelStoreContainer">
+          <EntitySet Name="Accounts" EntityType="DictionaryModel.Store.Accounts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Areas" EntityType="DictionaryModel.Store.Areas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Membership" EntityType="DictionaryModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Roles" EntityType="DictionaryModel.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_UsersInRoles" EntityType="DictionaryModel.Store.aspnet_UsersInRoles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Bulgarian-English" EntityType="DictionaryModel.Store.Bulgarian-English" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Cities" EntityType="DictionaryModel.Store.Cities" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Countries" EntityType="DictionaryModel.Store.Countries" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="English-Bulgarian" EntityType="DictionaryModel.Store.English-Bulgarian" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Languages" EntityType="DictionaryModel.Store.Languages" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TrackingSpendTime" EntityType="DictionaryModel.Store.TrackingSpendTime" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Villages" EntityType="DictionaryModel.Store.Villages" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__aspnet_Us__RoleI__4F7CD00D" Association="DictionaryModel.Store.FK__aspnet_Us__RoleI__4F7CD00D">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Areas" Association="DictionaryModel.Store.FK_Accounts_Areas">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_aspnet_Membership" Association="DictionaryModel.Store.FK_Accounts_aspnet_Membership">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Cities" Association="DictionaryModel.Store.FK_Accounts_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Countries" Association="DictionaryModel.Store.FK_Accounts_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Villages" Association="DictionaryModel.Store.FK_Accounts_Villages">
+            <End Role="Villages" EntitySet="Villages" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Areas_Countries" Association="DictionaryModel.Store.FK_Areas_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Areas" EntitySet="Areas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cities_Areas" Association="DictionaryModel.Store.FK_Cities_Areas">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_English-Bulgarian_Languages" Association="DictionaryModel.Store.FK_English-Bulgarian_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="English-Bulgarian" EntitySet="English-Bulgarian" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrackingSpendTime_Accounts" Association="DictionaryModel.Store.FK_TrackingSpendTime_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="TrackingSpendTime" EntitySet="TrackingSpendTime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Villages_Cities" Association="DictionaryModel.Store.FK_Villages_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Villages" EntitySet="Villages" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ASPNETID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Country" Type="int" />
+          <Property Name="Area" Type="int" />
+          <Property Name="City" Type="int" />
+          <Property Name="Village" Type="int" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="int" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="Picture" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Areas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordFormat" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="Comment" Type="ntext" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="aspnet_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bulgarian-English">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageId" Type="int" />
+          <Property Name="Word" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Тranscription" Type="nvarchar" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="English-Bulgarian">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageId" Type="int" Nullable="false" />
+          <Property Name="Word" Type="nvarchar" MaxLength="256" />
+          <Property Name="Тranscription" Type="nvarchar" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TrackingSpendTime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="LoginDate" Type="datetime" Nullable="false" />
+          <Property Name="SpendTime" Type="time" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Villages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__aspnet_Us__RoleI__4F7CD00D">
+          <End Role="aspnet_Roles" Type="DictionaryModel.Store.aspnet_Roles" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="DictionaryModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Areas">
+          <End Role="Areas" Type="DictionaryModel.Store.Areas" Multiplicity="0..1" />
+          <End Role="Accounts" Type="DictionaryModel.Store.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="Area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_aspnet_Membership">
+          <End Role="aspnet_Membership" Type="DictionaryModel.Store.aspnet_Membership" Multiplicity="1" />
+          <End Role="Accounts" Type="DictionaryModel.Store.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="ASPNETID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Cities">
+          <End Role="Cities" Type="DictionaryModel.Store.Cities" Multiplicity="0..1" />
+          <End Role="Accounts" Type="DictionaryModel.Store.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Countries">
+          <End Role="Countries" Type="DictionaryModel.Store.Countries" Multiplicity="0..1" />
+          <End Role="Accounts" Type="DictionaryModel.Store.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="Country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Villages">
+          <End Role="Villages" Type="DictionaryModel.Store.Villages" Multiplicity="0..1" />
+          <End Role="Accounts" Type="DictionaryModel.Store.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Villages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="Village" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Areas_Countries">
+          <End Role="Countries" Type="DictionaryModel.Store.Countries" Multiplicity="1" />
+          <End Role="Areas" Type="DictionaryModel.Store.Areas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Areas">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cities_Areas">
+          <End Role="Areas" Type="DictionaryModel.Store.Areas" Multiplicity="1" />
+          <End Role="Cities" Type="DictionaryModel.Store.Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_English-Bulgarian_Languages">
+          <End Role="Languages" Type="DictionaryModel.Store.Languages" Multiplicity="1" />
+          <End Role="English-Bulgarian" Type="DictionaryModel.Store.English-Bulgarian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="English-Bulgarian">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrackingSpendTime_Accounts">
+          <End Role="Accounts" Type="DictionaryModel.Store.Accounts" Multiplicity="1" />
+          <End Role="TrackingSpendTime" Type="DictionaryModel.Store.TrackingSpendTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrackingSpendTime">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Villages_Cities">
+          <End Role="Cities" Type="DictionaryModel.Store.Cities" Multiplicity="1" />
+          <End Role="Villages" Type="DictionaryModel.Store.Villages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Villages">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetAllAdmins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetAllUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="keywords" Type="varchar" Mode="In" />
+          <Parameter Name="sortingColumn" Type="varchar" Mode="In" />
+          <Parameter Name="sortingDirection" Type="varchar" Mode="In" />
+          <Parameter Name="startRow" Type="int" Mode="In" />
+          <Parameter Name="pageSize" Type="int" Mode="In" />
+          <Parameter Name="total" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="GetSearchedWord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="language" Type="int" Mode="In" />
+          <Parameter Name="searchMethod" Type="int" Mode="In" />
+          <Parameter Name="keywords" Type="nvarchar" Mode="In" />
+          <Parameter Name="sortingColumn" Type="nvarchar" Mode="In" />
+          <Parameter Name="sortingDirection" Type="nvarchar" Mode="In" />
+          <Parameter Name="total" Type="int" Mode="InOut" />
+          <Parameter Name="startRow" Type="int" Mode="In" />
+          <Parameter Name="pageSize" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetSpendTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="keywords" Type="varchar" Mode="In" />
+          <Parameter Name="total" Type="int" Mode="InOut" />
+          <Parameter Name="startRow" Type="int" Mode="In" />
+          <Parameter Name="pageSize" Type="int" Mode="In" />
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="EndDate" Type="datetime" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DictionaryModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DictionaryEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="Areas" EntityType="DictionaryModel.Area" />
+          <EntitySet Name="Countries" EntityType="DictionaryModel.Country" />
+          <AssociationSet Name="FK_Areas_Countries" Association="DictionaryModel.FK_Areas_Countries">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Area" EntitySet="Areas" />
+          </AssociationSet>
+          <EntitySet Name="Cities" EntityType="DictionaryModel.City" />
+          <EntitySet Name="Villages" EntityType="DictionaryModel.Village" />
+          <AssociationSet Name="FK_Cities_Areas" Association="DictionaryModel.FK_Cities_Areas">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Villages_Cities" Association="DictionaryModel.FK_Villages_Cities">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Village" EntitySet="Villages" />
+          </AssociationSet>
+          <EntitySet Name="TrackingSpendTimes" EntityType="DictionaryModel.TrackingSpendTime" />
+          <EntitySet Name="Bulgarian_English" EntityType="DictionaryModel.Bulgarian_English" />
+          <EntitySet Name="aspnet_Membership" EntityType="DictionaryModel.aspnet_Membership" />
+          <EntitySet Name="aspnet_UsersInRoles" EntityType="DictionaryModel.aspnet_UsersInRoles" />
+          <EntitySet Name="aspnet_Roles" EntityType="DictionaryModel.aspnet_Roles" />
+          <AssociationSet Name="FK__aspnet_Us__RoleI__4F7CD00D" Association="DictionaryModel.FK__aspnet_Us__RoleI__4F7CD00D">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <FunctionImport Name="GetSpendTime" ReturnType="Collection(DictionaryModel.GetSpendTime_Result)">
+            <Parameter Name="keywords" Mode="In" Type="String" />
+            <Parameter Name="total" Mode="InOut" Type="Int32" />
+            <Parameter Name="startRow" Mode="In" Type="Int32" />
+            <Parameter Name="pageSize" Mode="In" Type="Int32" />
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllUsers" ReturnType="Collection(DictionaryModel.GetAllUsers_Result)">
+            <Parameter Name="keywords" Mode="In" Type="String" />
+            <Parameter Name="sortingColumn" Mode="In" Type="String" />
+            <Parameter Name="sortingDirection" Mode="In" Type="String" />
+            <Parameter Name="startRow" Mode="In" Type="Int32" />
+            <Parameter Name="pageSize" Mode="In" Type="Int32" />
+            <Parameter Name="total" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Languages" EntityType="DictionaryModel.Language" />
+          <AssociationSet Name="FK_Bulgarian_English_Languages" Association="DictionaryModel.FK_Bulgarian_English_Languages">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Bulgarian_English" EntitySet="Bulgarian_English" />
+          </AssociationSet>
+          <EntitySet Name="Accounts" EntityType="DictionaryModel.Account" />
+          <AssociationSet Name="FK_Accounts_Areas" Association="DictionaryModel.FK_Accounts_Areas">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_aspnet_Membership" Association="DictionaryModel.FK_Accounts_aspnet_Membership">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Cities" Association="DictionaryModel.FK_Accounts_Cities">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Countries" Association="DictionaryModel.FK_Accounts_Countries">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Villages" Association="DictionaryModel.FK_Accounts_Villages">
+            <End Role="Village" EntitySet="Villages" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrackingSpendTime_Accounts" Association="DictionaryModel.FK_TrackingSpendTime_Accounts">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="TrackingSpendTime" EntitySet="TrackingSpendTimes" />
+          </AssociationSet>
+          <EntitySet Name="English_Bulgarian" EntityType="DictionaryModel.English_Bulgarian" />
+          <AssociationSet Name="FK_English_Bulgarian_Languages" Association="DictionaryModel.FK_English_Bulgarian_Languages">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="English_Bulgarian" EntitySet="English_Bulgarian" />
+          </AssociationSet>
+          <FunctionImport Name="GetAllAdmins" ReturnType="Collection(DictionaryModel.GetAllAdmins_Result)" />
+          <FunctionImport Name="GetSearchedWord" ReturnType="Collection(DictionaryModel.GetSearchedWord_Result)">
+            <Parameter Name="language" Mode="In" Type="Int32" />
+            <Parameter Name="searchMethod" Mode="In" Type="Int32" />
+            <Parameter Name="keywords" Mode="In" Type="String" />
+            <Parameter Name="sortingColumn" Mode="In" Type="String" />
+            <Parameter Name="sortingDirection" Mode="In" Type="String" />
+            <Parameter Name="total" Mode="InOut" Type="Int32" />
+            <Parameter Name="startRow" Mode="In" Type="Int32" />
+            <Parameter Name="pageSize" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Country" Relationship="DictionaryModel.FK_Areas_Countries" FromRole="Area" ToRole="Country" />
+          <NavigationProperty Name="Cities" Relationship="DictionaryModel.FK_Cities_Areas" FromRole="Area" ToRole="City" />
+          <NavigationProperty Name="Accounts" Relationship="DictionaryModel.FK_Accounts_Areas" FromRole="Area" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Areas" Relationship="DictionaryModel.FK_Areas_Countries" FromRole="Country" ToRole="Area" />
+          <NavigationProperty Name="Accounts" Relationship="DictionaryModel.FK_Accounts_Countries" FromRole="Country" ToRole="Account" />
+        </EntityType>
+        <Association Name="FK_Areas_Countries">
+          <End Type="DictionaryModel.Country" Role="Country" Multiplicity="1" />
+          <End Type="DictionaryModel.Area" Role="Area" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Area">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="AreaId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Area" Relationship="DictionaryModel.FK_Cities_Areas" FromRole="City" ToRole="Area" />
+          <NavigationProperty Name="Villages" Relationship="DictionaryModel.FK_Villages_Cities" FromRole="City" ToRole="Village" />
+          <NavigationProperty Name="Accounts" Relationship="DictionaryModel.FK_Accounts_Cities" FromRole="City" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Village">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CityId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="City" Relationship="DictionaryModel.FK_Villages_Cities" FromRole="Village" ToRole="City" />
+          <NavigationProperty Name="Accounts" Relationship="DictionaryModel.FK_Accounts_Villages" FromRole="Village" ToRole="Account" />
+        </EntityType>
+        <Association Name="FK_Cities_Areas">
+          <End Type="DictionaryModel.Area" Role="Area" Multiplicity="1" />
+          <End Type="DictionaryModel.City" Role="City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Villages_Cities">
+          <End Type="DictionaryModel.City" Role="City" Multiplicity="1" />
+          <End Type="DictionaryModel.Village" Role="Village" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Village">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TrackingSpendTime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="DateTime" Name="LoginDate" Nullable="false" />
+          <Property Type="Time" Name="SpendTime" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="DictionaryModel.FK_TrackingSpendTime_Accounts" FromRole="TrackingSpendTime" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Bulgarian_English">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Word" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Тranscription" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="LanguageId" />
+          <NavigationProperty Name="Language" Relationship="DictionaryModel.FK_Bulgarian_English_Languages" FromRole="Bulgarian_English" ToRole="Language" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PasswordFormat" Nullable="false" />
+          <Property Type="String" Name="PasswordSalt" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MobilePIN" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredEmail" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PasswordQuestion" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PasswordAnswer" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsApproved" Nullable="false" />
+          <Property Type="Boolean" Name="IsLockedOut" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="DateTime" Name="LastLoginDate" Nullable="false" />
+          <Property Type="DateTime" Name="LastPasswordChangedDate" Nullable="false" />
+          <Property Type="DateTime" Name="LastLockoutDate" Nullable="false" />
+          <Property Type="Int32" Name="FailedPasswordAttemptCount" Nullable="false" />
+          <Property Type="DateTime" Name="FailedPasswordAttemptWindowStart" Nullable="false" />
+          <Property Type="Int32" Name="FailedPasswordAnswerAttemptCount" Nullable="false" />
+          <Property Type="DateTime" Name="FailedPasswordAnswerAttemptWindowStart" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Accounts" Relationship="DictionaryModel.FK_Accounts_aspnet_Membership" FromRole="aspnet_Membership" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="aspnet_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Guid" Name="RoleId" Nullable="false" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="DictionaryModel.FK__aspnet_Us__RoleI__4F7CD00D" FromRole="aspnet_UsersInRoles" ToRole="aspnet_Roles" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="RoleId" Nullable="false" />
+          <Property Type="String" Name="RoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredRoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_UsersInRoles" Relationship="DictionaryModel.FK__aspnet_Us__RoleI__4F7CD00D" FromRole="aspnet_Roles" ToRole="aspnet_UsersInRoles" />
+        </EntityType>
+        <Association Name="FK__aspnet_Us__RoleI__4F7CD00D">
+          <End Type="DictionaryModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="1" />
+          <End Type="DictionaryModel.aspnet_UsersInRoles" Role="aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetSpendTime_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Phone" Nullable="true" />
+          <Property Type="DateTime" Name="LastVisited" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="TotalSpendTime" Nullable="true" />
+          <Property Type="Int64" Name="RowRank" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetAllUsers_Result">
+          <Property Type="Guid" Name="ASPNETID" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Phone" Nullable="true" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Notes" Nullable="true" />
+          <Property Type="String" Name="currentUserName" Nullable="true" MaxLength="256" />
+          <Property Type="Int64" Name="RowRank" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bulgarian_English" Relationship="DictionaryModel.FK_Bulgarian_English_Languages" FromRole="Language" ToRole="Bulgarian_English" />
+          <NavigationProperty Name="English_Bulgarian" Relationship="DictionaryModel.FK_English_Bulgarian_Languages" FromRole="Language" ToRole="English_Bulgarian" />
+        </EntityType>
+        <Association Name="FK_Bulgarian_English_Languages">
+          <End Type="DictionaryModel.Language" Role="Language" Multiplicity="0..1" />
+          <End Type="DictionaryModel.Bulgarian_English" Role="Bulgarian_English" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bulgarian_English">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Guid" Name="ASPNETID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Country" />
+          <Property Type="Int32" Name="Area" />
+          <Property Type="Int32" Name="City" />
+          <Property Type="Int32" Name="Village" />
+          <Property Type="String" Name="Address" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Phone" />
+          <Property Type="String" Name="Notes" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Picture" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Area1" Relationship="DictionaryModel.FK_Accounts_Areas" FromRole="Account" ToRole="Area" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="DictionaryModel.FK_Accounts_aspnet_Membership" FromRole="Account" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="City1" Relationship="DictionaryModel.FK_Accounts_Cities" FromRole="Account" ToRole="City" />
+          <NavigationProperty Name="Country1" Relationship="DictionaryModel.FK_Accounts_Countries" FromRole="Account" ToRole="Country" />
+          <NavigationProperty Name="Village1" Relationship="DictionaryModel.FK_Accounts_Villages" FromRole="Account" ToRole="Village" />
+          <NavigationProperty Name="TrackingSpendTimes" Relationship="DictionaryModel.FK_TrackingSpendTime_Accounts" FromRole="Account" ToRole="TrackingSpendTime" />
+        </EntityType>
+        <Association Name="FK_Accounts_Areas">
+          <End Type="DictionaryModel.Area" Role="Area" Multiplicity="0..1" />
+          <End Type="DictionaryModel.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="Area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_aspnet_Membership">
+          <End Type="DictionaryModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
+          <End Type="DictionaryModel.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="ASPNETID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Cities">
+          <End Type="DictionaryModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="DictionaryModel.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Countries">
+          <End Type="DictionaryModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="DictionaryModel.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="Country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Villages">
+          <End Type="DictionaryModel.Village" Role="Village" Multiplicity="0..1" />
+          <End Type="DictionaryModel.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Village">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="Village" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrackingSpendTime_Accounts">
+          <End Type="DictionaryModel.Account" Role="Account" Multiplicity="1" />
+          <End Type="DictionaryModel.TrackingSpendTime" Role="TrackingSpendTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrackingSpendTime">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="English_Bulgarian">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="LanguageId" Nullable="false" />
+          <Property Type="String" Name="Word" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Тranscription" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Language" Relationship="DictionaryModel.FK_English_Bulgarian_Languages" FromRole="English_Bulgarian" ToRole="Language" />
+        </EntityType>
+        <Association Name="FK_English_Bulgarian_Languages">
+          <End Type="DictionaryModel.Language" Role="Language" Multiplicity="1" />
+          <End Type="DictionaryModel.English_Bulgarian" Role="English_Bulgarian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="English_Bulgarian">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetAllAdmins_Result">
+          <Property Type="Guid" Name="ASPNETID" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Phone" Nullable="true" />
+          <Property Type="String" Name="currentUserName" Nullable="false" MaxLength="256" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="RoleName" Nullable="false" MaxLength="256" />
+        </ComplexType>
+        <ComplexType Name="GetSearchedWord_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Word" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="Тranscription" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="Int64" Name="RowRank" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DictionaryModelStoreContainer" CdmEntityContainer="DictionaryEntities" >
+          <EntitySetMapping Name="Areas">
+            <EntityTypeMapping TypeName="DictionaryModel.Area">
+              <MappingFragment StoreEntitySet="Areas">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="DictionaryModel.Country">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="DictionaryModel.City">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Villages">
+            <EntityTypeMapping TypeName="DictionaryModel.Village">
+              <MappingFragment StoreEntitySet="Villages">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrackingSpendTimes">
+            <EntityTypeMapping TypeName="DictionaryModel.TrackingSpendTime">
+              <MappingFragment StoreEntitySet="TrackingSpendTime">
+                <ScalarProperty Name="SpendTime" ColumnName="SpendTime" />
+                <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bulgarian_English">
+            <EntityTypeMapping TypeName="DictionaryModel.Bulgarian_English">
+              <MappingFragment StoreEntitySet="Bulgarian-English">
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Тranscription" ColumnName="Тranscription" />
+                <ScalarProperty Name="Word" ColumnName="Word" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Membership">
+            <EntityTypeMapping TypeName="DictionaryModel.aspnet_Membership">
+              <MappingFragment StoreEntitySet="aspnet_Membership">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_UsersInRoles">
+            <EntityTypeMapping TypeName="DictionaryModel.aspnet_UsersInRoles">
+              <MappingFragment StoreEntitySet="aspnet_UsersInRoles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Roles">
+            <EntityTypeMapping TypeName="DictionaryModel.aspnet_Roles">
+              <MappingFragment StoreEntitySet="aspnet_Roles">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetSpendTime" FunctionName="DictionaryModel.Store.GetSpendTime">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DictionaryModel.GetSpendTime_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="LastVisited" ColumnName="LastVisited" />
+                <ScalarProperty Name="TotalSpendTime" ColumnName="TotalSpendTime" />
+                <ScalarProperty Name="RowRank" ColumnName="RowRank" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAllUsers" FunctionName="DictionaryModel.Store.GetAllUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DictionaryModel.GetAllUsers_Result">
+                <ScalarProperty Name="ASPNETID" ColumnName="ASPNETID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="currentUserName" ColumnName="currentUserName" />
+                <ScalarProperty Name="RowRank" ColumnName="RowRank" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="DictionaryModel.Language">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="DictionaryModel.Account">
+              <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Village" ColumnName="Village" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="ASPNETID" ColumnName="ASPNETID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="English_Bulgarian">
+            <EntityTypeMapping TypeName="DictionaryModel.English_Bulgarian">
+              <MappingFragment StoreEntitySet="English-Bulgarian">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Тranscription" ColumnName="Тranscription" />
+                <ScalarProperty Name="Word" ColumnName="Word" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAllAdmins" FunctionName="DictionaryModel.Store.GetAllAdmins">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DictionaryModel.GetAllAdmins_Result">
+                <ScalarProperty Name="ASPNETID" ColumnName="ASPNETID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="currentUserName" ColumnName="currentUserName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSearchedWord" FunctionName="DictionaryModel.Store.GetSearchedWord">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DictionaryModel.GetSearchedWord_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Word" ColumnName="Word" />
+                <ScalarProperty Name="Тranscription" ColumnName="Тranscription" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RowRank" ColumnName="RowRank" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DictionaryModel" ZoomLevel="82" >
+        <EntityTypeShape EntityType="DictionaryModel.Area" Width="1.5" PointX="3" PointY="0.875" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="DictionaryModel.Country" Width="1.5" PointX="0.75" PointY="1.125" Height="1.5956835937499996" />
+        <AssociationConnector Association="DictionaryModel.FK_Areas_Countries" >
+          <ConnectorPoint PointX="2.25" PointY="2.0189925130208328" />
+          <ConnectorPoint PointX="3" PointY="2.0189925130208328" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DictionaryModel.City" Width="1.5" PointX="5.25" PointY="0.875" Height="1.9802864583333324" />
+        <EntityTypeShape EntityType="DictionaryModel.Village" Width="1.5" PointX="7.5" PointY="1" Height="1.7879850260416677" />
+        <AssociationConnector Association="DictionaryModel.FK_Cities_Areas" >
+          <ConnectorPoint PointX="4.5" PointY="1.9612939453125" />
+          <ConnectorPoint PointX="5.25" PointY="1.9612939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="DictionaryModel.FK_Villages_Cities" >
+          <ConnectorPoint PointX="6.75" PointY="1.9901432291666665" />
+          <ConnectorPoint PointX="7.5" PointY="1.9901432291666665" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DictionaryModel.TrackingSpendTime" Width="1.5" PointX="3" PointY="4.375" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="DictionaryModel.Bulgarian_English" Width="1.5" PointX="5.375" PointY="6.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="DictionaryModel.aspnet_Membership" Width="1.5" PointX="7.375" PointY="6.75" Height="5.0571093750000031" />
+        <EntityTypeShape EntityType="DictionaryModel.aspnet_UsersInRoles" Width="1.5" PointX="0.75" PointY="8.75" Height="1.4033821614583317" />
+        <EntityTypeShape EntityType="DictionaryModel.aspnet_Roles" Width="1.5" PointX="0.75" PointY="11.5" Height="2.1725878906250031" />
+        <AssociationConnector Association="DictionaryModel.FK__aspnet_Us__RoleI__4F7CD00D" >
+          <ConnectorPoint PointX="1.5" PointY="11.5" />
+          <ConnectorPoint PointX="1.5" PointY="10.34568359375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DictionaryModel.Language" Width="1.5" PointX="2.875" PointY="8" Height="1.7879850260416674" />
+        <AssociationConnector Association="DictionaryModel.FK_Bulgarian_English_Languages" >
+          <ConnectorPoint PointX="4.375" PointY="8.4612939453125" />
+          <ConnectorPoint PointX="5.375" PointY="8.4612939453125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DictionaryModel.Account" Width="1.5" PointX="0.625" PointY="4.375" Height="4.480205078125004" />
+        <AssociationConnector Association="DictionaryModel.FK_Accounts_Areas" >
+          <ConnectorPoint PointX="3" PointY="0.96874999999999989" />
+          <ConnectorPoint PointX="0.65625" PointY="0.96874999999999989" />
+          <ConnectorPoint PointX="0.65625" PointY="4.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="DictionaryModel.FK_Accounts_aspnet_Membership" >
+          <ConnectorPoint PointX="8.125" PointY="6.75" />
+          <ConnectorPoint PointX="8.125" PointY="6.5838922291666675" />
+          <ConnectorPoint PointX="2.125" PointY="6.5838922291666675" />
+        </AssociationConnector>
+        <AssociationConnector Association="DictionaryModel.FK_Accounts_Cities" >
+          <ConnectorPoint PointX="5.28125" PointY="3.047587890625" />
+          <ConnectorPoint PointX="5.28125" PointY="6.4695868437500064" />
+          <ConnectorPoint PointX="2.125" PointY="6.4695868437500064" />
+        </AssociationConnector>
+        <AssociationConnector Association="DictionaryModel.FK_Accounts_Countries" >
+          <ConnectorPoint PointX="1.4375" PointY="2.9129850260416661" />
+          <ConnectorPoint PointX="1.4375" PointY="4.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="DictionaryModel.FK_Accounts_Villages" >
+          <ConnectorPoint PointX="8.96875" PointY="2.9802864583333331" />
+          <ConnectorPoint PointX="8.96875" PointY="6.6151447291666612" />
+          <ConnectorPoint PointX="2.125" PointY="6.6151447291666612" />
+        </AssociationConnector>
+        <AssociationConnector Association="DictionaryModel.FK_TrackingSpendTime_Accounts" >
+          <ConnectorPoint PointX="2.125" PointY="5.3651432291666667" />
+          <ConnectorPoint PointX="3" PointY="5.3651432291666667" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DictionaryModel.English_Bulgarian" Width="1.5" PointX="5.125" PointY="9.75" Height="2.1725878906250031" />
+        <AssociationConnector Association="DictionaryModel.FK_English_Bulgarian_Languages" >
+          <ConnectorPoint PointX="4.375" PointY="9.3675434453125" />
+          <ConnectorPoint PointX="5.21875" PointY="9.3675434453125" />
+          <ConnectorPoint PointX="5.21875" PointY="9.75" />
+        </AssociationConnector>
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

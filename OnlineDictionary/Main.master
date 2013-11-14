@@ -1,0 +1,107 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Main.master.cs" Inherits="Main" %>
+
+<%@ Register Src="Modules/FreeAccess/Login.ascx" TagName="Login" TagPrefix="uc" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//BG" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Речник</title>
+    <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="js/Main.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form class="wrapper" id="formMain" runat="server">
+    <asp:ScriptManager runat="server" ID="scriptManagerMain" />
+    <div class="main">
+        <asp:Image CssClass="imgSpendTime" Style="display: none;" Visible="false" ID="imgSpendTime"
+            AlternateText=" " runat="server" />
+        <div class="logo">
+        </div>
+        <div class="headerGeneral" >
+        <div class="header">
+            <div class="headline">
+            </div>
+            <div class="navigation">
+                <asp:Panel ID="pnlUserStatus" CssClass="loginStatus" Visible="false" runat="server">
+                    <asp:Label ID="lblUserNames" CssClass="userNames" Text="Здравей, " runat="server"></asp:Label>
+                    <asp:LoginStatus CssClass="btnExit" LogoutImageUrl="~/App_Themes/Default/images/btnExit.png"
+                        ToolTip="Изход" OnLoggedOut="LoginStatusMain_LoggedOut" runat="server" />
+                </asp:Panel>
+                <div>
+                    <asp:HyperLink ID="hLinkHome" Visible="false" ToolTip="Начало" NavigateUrl="~/Default.aspx"
+                        CssClass="singleMenuItem" Text="Начало" runat="server" />
+                    <asp:Repeater ID="rptMenuMain" runat="server" OnItemDataBound="rptMenuMain_ItemDataBound">
+                        <HeaderTemplate>
+                            <ul>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li runat="server" id="btnMenuContainer" class="static">
+                                <asp:HyperLink ID="hLinkMenu" runat="server" Text='<%# ((KeyValuePair<string,string>)Container.DataItem).Key  %>'
+                                    ToolTip='<%# ((KeyValuePair<string,string>)Container.DataItem).Key %>' NavigateUrl='<%# ((KeyValuePair<string,string>)Container.DataItem).Value %>'></asp:HyperLink>
+                            </li>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </ul></FooterTemplate>
+                    </asp:Repeater>
+                </div>
+                <asp:Panel ID="pnlLoginButton" runat="server">
+                    <asp:UpdatePanel ID="UpdatePanelLogin" UpdateMode="Always" ChildrenAsTriggers="true"
+                        runat="server">
+                        <ContentTemplate>
+                            <asp:LinkButton ID="lbtnExpandLoginForm" CssClass="btnLogin leftFloat jsLbtnExpandLoginForm"
+                                runat="server" />
+                            <asp:Panel ID="pnlLoginForm" CssClass="loginForm" runat="server">
+                                <uc:Login ID="ucLogin" runat="server" />
+                            </asp:Panel>
+                            <ajax:CollapsiblePanelExtender Collapsed="true" ID="cpeLoginForm" ExpandControlID="lbtnExpandLoginForm"
+                                CollapseControlID="lbtnExpandLoginForm" ExpandDirection="Vertical" SuppressPostBack="true"
+                                TargetControlID="pnlLoginForm" runat="server">
+                            </ajax:CollapsiblePanelExtender>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </asp:Panel>
+            </div>
+            <div class="navigationBottom">
+                <div class="left">
+                    <asp:Label ID="lblMessage" Text="Безплатна регистрация." runat="server" />
+                </div>
+                <div class="right">
+                    <asp:TextBox CssClass="txtSearch rightFloat jsTxtSearchMasterPage" ID="txtSearchTaskMasterPage"
+                        AutoPostBack="true" OnTextChanged="txtSearch_TextChanged" ToolTip="Въведете дума за превод"
+                        runat="server" />
+                    <asp:LinkButton ID="lbtnShortSearch" CssClass="btnSearchNavigation rightFloat" OnClick="txtSearch_TextChanged"
+                        runat="server"></asp:LinkButton>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- END HEADER -->
+        <div class="containerTop">
+        </div>
+        <asp:Panel runat="server" CssClass="container" ID="pnlMainContainer">
+            <asp:UpdatePanel runat="server" ID="updatePanelMain" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <div id="PlaceHolderMain" class="containerIn">
+                        <asp:ContentPlaceHolder ID="PlaceHolderControls" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </asp:Panel>
+        <div class="containerBottom">
+        </div>
+        <div class="footerBackgground">
+            <div class="footer">
+                <span class="testimonial"></span>
+                <asp:Image ImageUrl="~/App_Themes/Default/images/testimonial.png" Width="106" Height="18"
+                    runat="server" />
+                <a href="/writeareview.aspx">Отзиви</a>
+            </div>
+        </div>
+        <%--<asp:Panel ID="pnlCreateNewAccount" CssClass="PopUp" Visible="false" runat="server">
+            <uc:CreateNewAccount ID="ucCreateNewAccount" runat="server" />
+        </asp:Panel>--%>
+    </div>
+    </form>
